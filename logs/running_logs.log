@@ -1,0 +1,146 @@
+[2026-04-17 19:06:33,384: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-04-17 19:06:33,387: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:06:33,388: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:06:33,389: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:06:33,389: INFO: common: created directory at: artifacts]
+[2026-04-17 19:06:33,390: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-04-17 19:07:48,563: ERROR: main: <urlopen error [Errno 60] Operation timed out>]
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1323, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1369, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1318, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1078, in _send_output
+    self.send(msg)
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1016, in send
+    self.connect()
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 1488, in connect
+    super().connect()
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/http/client.py", line 982, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 863, in create_connection
+    raise exceptions[0]
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 848, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/apple/Programming/LLM-Text-Detection/main.py", line 12, in <module>
+    data_ingestion.main()
+  File "/Users/apple/Programming/LLM-Text-Detection/src/LLM_text_detection/pipeline/Stage_01.py", line 13, in main
+    data_ingestion.download_file()
+  File "/Users/apple/Programming/LLM-Text-Detection/src/LLM_text_detection/components/Data_ingestion.py", line 15, in download_file
+    filename, headers = request.urlretrieve(
+                        ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 241, in urlretrieve
+    with contextlib.closing(urlopen(url, data)) as fp:
+                            ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/Cellar/python@3.11/3.11.15/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 60] Operation timed out>
+[2026-04-17 19:09:16,933: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2026-04-17 19:09:16,936: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:09:16,937: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:09:16,938: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:09:16,938: INFO: common: created directory at: artifacts]
+[2026-04-17 19:09:16,938: INFO: common: created directory at: artifacts/data_ingestion]
+[2026-04-17 19:09:30,926: INFO: Data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 31448525
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "9032d941af047914d8687d4adc317732a757406822ccfc0b518289ffe1b386e0"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 83F6:19998E:1C1AE:3B7BE:69E23805
+Accept-Ranges: bytes
+Date: Fri, 17 Apr 2026 13:39:20 GMT
+Via: 1.1 varnish
+X-Served-By: cache-maa10222-MAA
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1776433158.916677,VS0,VE2441
+Vary: Authorization,Accept-Encoding
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 8ecf31fdc22e81f714345bcf3e3cc33b48180eb4
+Expires: Fri, 17 Apr 2026 13:44:20 GMT
+Source-Age: 2
+
+]
+[2026-04-17 19:09:31,297: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2026-04-17 19:09:31,297: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2026-04-17 19:09:31,301: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:09:31,301: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:09:31,302: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:09:31,302: INFO: common: created directory at: artifacts]
+[2026-04-17 19:09:31,303: INFO: common: created directory at: artifacts/data_validation]
+[2026-04-17 19:09:32,858: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2026-04-17 19:09:32,858: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2026-04-17 19:09:32,861: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:09:32,862: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:09:32,863: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:09:32,863: INFO: common: created directory at: artifacts]
+[2026-04-17 19:09:32,864: INFO: common: created directory at: artifacts/data_transformation]
+[2026-04-17 19:09:34,361: INFO: Data_transformation: Vectorizer is loaded]
+[2026-04-17 19:09:47,548: INFO: Data_transformation: Vectorizer Transformed Data]
+[2026-04-17 19:09:52,523: INFO: Data_transformation: Vectorization is completed]
+[2026-04-17 19:10:01,004: INFO: Data_transformation: Spliting of Data is Completed]
+[2026-04-17 19:10:01,007: INFO: Data_transformation: Label Encoder is Done]
+[2026-04-17 19:10:01,128: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2026-04-17 19:10:01,128: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2026-04-17 19:10:01,131: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:10:01,132: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:10:01,133: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:10:01,133: INFO: common: created directory at: artifacts]
+[2026-04-17 19:10:01,133: INFO: common: created directory at: artifacts/model_trainer]
+[2026-04-17 19:10:01,133: INFO: Model_Trainer: Data Loaded]
+[2026-04-17 19:10:01,223: INFO: Model_Trainer: Model Compiled]
+[2026-04-17 19:11:23,079: INFO: Model_Trainer: Model training Completed]
+[2026-04-17 19:11:23,079: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2026-04-17 19:11:23,118: INFO: Model_Trainer: Model Saved]
+[2026-04-17 19:11:23,118: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2026-04-17 19:11:23,118: INFO: main: >>>>>> stage Model evaluation stage started <<<<<<]
+[2026-04-17 19:11:23,121: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2026-04-17 19:11:23,122: INFO: common: yaml file: params.yaml loaded successfully]
+[2026-04-17 19:11:23,123: INFO: common: yaml file: schema.yaml loaded successfully]
+[2026-04-17 19:11:23,123: INFO: common: created directory at: artifacts]
+[2026-04-17 19:11:23,123: INFO: common: created directory at: artifacts/model_evaluation]
+[2026-04-17 19:11:23,183: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-04-17 19:11:45,670: INFO: main: >>>>>> stage Model evaluation stage completed <<<<<<
+
+x==========x]
+[2026-04-17 19:47:15,850: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]

@@ -3,8 +3,8 @@ import pickle
 
 class PredictionPipeline:
     def __init__(self):
-        self.model = tf.keras.models.load_model("artifacts/model_trainer/text_classification_model.h5")
-        self.vectorizer = pickle.load(open("artifacts/data_transformation/tfidf_tokenizer.pkl", "rb"))
+        self.model = tf.keras.models.load_model("assests/text_classification_model.h5")
+        self.vectorizer = pickle.load(open("assests/tfidf_tokenizer.pkl", "rb"))
 
     def predict(self, text):
         transformed = self.vectorizer.transform([text]).toarray()
