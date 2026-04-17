@@ -1,0 +1,22 @@
+cat > .gitignore << 'EOF'
+# Virtual Environment
+lmenv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Large model/data files
+*.h5
+*.zip
+*.csv
+artifacts/
+
+# System
+.DS_Store
+.env
+EOF

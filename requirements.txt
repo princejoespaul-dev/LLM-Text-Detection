@@ -1,0 +1,14 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+seaborn
+tensorflow
+wordcloud
+types-PyYAML
+tqdm
+python-box==6.0.2
+pyYAML
+ensure==1.0.2
+notebook
+-e .
