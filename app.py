@@ -53,25 +53,24 @@ def main_page():
 
 # Train Page
 def train_page():
-    st.title("Train Model")
-
-    st.write("""
-    Click the button below to train the model:
-    """)
-
     if st.button("Train Model"):
-        st.write("Training process started...")
-        train_model()
-        st.write("Training process completed.")
+        with st.spinner("Training in progress... this may take several minutes."):
+            import subprocess
+            result = subprocess.run(["python", "main.py"], capture_output=True, text=True)
+            if result.returncode == 0:
+                st.success("Training completed!")
+            else:
+                st.error(f"Training failed:\n{result.stderr}")
+
+@st.cache_resource
+def load_pipeline():
+    return PredictionPipeline()
 
 # Predict Page
 def predict_page():
-    st.title("Predict Text")
-
-    text = st.text_area("Enter text to classify:",height=500)
-
+    text = st.text_area("Enter text to classify:", height=500)
     if st.button("Predict"):
-        pipeline = PredictionPipeline()
+        pipeline = load_pipeline()  # cached, loaded once
         result = pipeline.predict(text)
         st.success(f"Prediction: {result}")
 
