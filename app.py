@@ -1,4 +1,18 @@
 import streamlit as st
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import pickle
+import numpy as np
+from tensorflow.keras.models import load_model
+
+@st.cache_resource
+def load_assets():
+    with open('assets/tfidf_tokenizer.pkl', 'rb') as f:
+        tokenizer = pickle.load(f)
+    model = load_model('assets/text_classification_model.h5')
+    return tokenizer, model
+
+tfidf_tokenizer, loaded_model = load_assets()
 
 # Function to run the training script
 def train_model():
@@ -52,21 +66,33 @@ def main_page():
 
 # Train Page
 def train_page():
-    st.title("Train Model")
-
-    st.write("""
-    Click the button below to train the model:
-    """)
-
     if st.button("Train Model"):
-        st.write("Training process started...")
-        train_model()
-        st.write("Training process completed.")
+        with st.spinner("Training in progress... this may take several minutes."):
+            import subprocess
+            result = subprocess.run(["python", "main.py"], capture_output=True, text=True)
+            if result.returncode == 0:
+                st.success("Training completed!")
+            else:
+                st.error(f"Training failed:\n{result.stderr}")
+
+# Predict Page
+def predict_page():
+    text = st.text_area("Enter text to classify:", height=500)
+    if st.button("Predict"):
+        if text.strip():
+            features = tfidf_tokenizer.transform([text]).toarray()
+            prediction = loaded_model.predict(features)
+            result = "🤖 AI Generated" if prediction[0][0] > 0.5 else "👤 Human Written"
+            st.success(f"Prediction: {result}")
+        else:
+            st.warning("Please enter some text.")
 
 # Navigation
-page = st.sidebar.radio("Navigation", ["Main Page", "Train Page"])
+page = st.sidebar.radio("Navigation", ["Main Page", "Train Page", "Predict Page"])
 
 if page == "Main Page":
     main_page()
 elif page == "Train Page":
     train_page()
+elif page == "Predict Page":
+    predict_page()
