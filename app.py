@@ -4,7 +4,7 @@ from src.LLM_text_detection.pipeline.prediction import PredictionPipeline
 # Function to run the training script
 def train_model():
     import subprocess
-    subprocess.run(["python", "main.py"])
+    subprocess.run(["python3", "main.py"])
 
 # Main Page
 def main_page():
